@@ -1,46 +1,76 @@
 import mysql.connector
 import menus
+import os
 
-print('''
-1 - Módulo de gerênciamento
-2 - Módulo de votação
-''')
-escolha = int(input('Qual módulo você deseja entrar? '))
-opcao = 0
-match escolha:
-    case 1:
-        menus.menuModGere()
-        match escolha:
-            case 1:
-                pass
-            case 2:
-                pass
-            case 3:
-                pass
-            case 4:
-                pass
-            case 5:
-                pass
-            case 6:
-                menus.menuInic()
-            case _:
-                print('Opção inválidada')
-    case 2:
-        menus.menuModVota()
-        match escolha:
-            #abrir sist de votação
-            case 1:
-                pass
-            #auditoria
-            case 2:
-                pass
-            #resultado
-            case 3:
-                menus.menuResulVota()
-            #voltar
-            case 4:
-                menus.menuInic()
-            case _:
-                print('Opção inválida')
-    case _:
-        print('Opção inválida')
+def iniciar():
+    escolha = menus.menuInic()
+    #modulo de gerenciamento
+    match escolha:
+        case 1:
+            opcao = menus.menuModGere()
+            match opcao:
+                #cadastro de novo eleitor
+                case 1:
+                    pass
+                #editar dados do eleitor
+                case 2:
+                    pass
+                #listagem de todos os eleitores
+                case 3:
+                    pass
+                #fazer uma busca por eleitor
+                case 4:
+                    pass
+                #remover um eleitor
+                case 5:
+                    pass
+                #voltar
+                case 6:
+                    iniciar()
+    
+        #modulo de votação
+        case 2:
+            opcao = menus.menuModVota()
+            match opcao:
+                #abrir sist. de votação
+                case 1:
+                    pass
+                #auditoria
+                case 2:
+                    opcaoAudVota = menus.menuAudVota()
+                    match opcaoAudVota:
+                        #logs de ocorrência
+                        case 1:
+                            pass
+                        #protocolos de votação
+                        case 2:
+                            pass
+                        #voltar
+                        case 3:
+                           menus.menuModVota()
+
+                #resultado
+                case 3:
+                    opcaoResulVota = menus.menuResulVota()
+                    match opcaoResulVota:
+                        #boletim de urna
+                        case 1:
+                            pass
+                        #estatísticas do candidato
+                        case 2:
+                            pass
+                        #votos por partido
+                        case 3:
+                            pass
+                        #validação de integridade
+                        case 4:
+                            pass
+                        #voltar
+                        case 5:
+                            menus.menuModVota()
+                            
+                #voltar
+                case 4:
+                    iniciar()
+                    
+iniciar()
