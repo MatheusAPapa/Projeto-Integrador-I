@@ -13,24 +13,29 @@ while escolha != 3:
                 #cadastro de novo eleitor
                 case 1:
                     print('cadastrar de novo eleitor')
+                    break
                 #editar dados do eleitor
                 case 2:
                     print('editar dados do eleitor')
+                    break
                 #listagem de todos os eleitores
                 case 3:
                     print('listagem de todos os eleitores')
+                    break
                 #fazer uma busca por eleitor
                 case 4:
                     print('fazer uma busca por um eleitor')
+                    break
                 #remover um eleitor
                 case 5:
                     print('remover um eleitor')
+                    break
                 #voltar
                 case 6:
                     pass
     
         #modulo de votação
         case 2:
-            opcao = navegacaoModVotacao.modVotacao()
+            navegacaoModVotacao.modVotacao()
         case 3:
             print('Saindo do sistema')
