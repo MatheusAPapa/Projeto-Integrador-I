@@ -11,8 +11,8 @@ while escolha != 3:
         case 1:
             opcao = menus.menuModGere()
             match opcao:
-                #cadastro de novo eleitor
                 case 1:
+                    #cadastro de novo eleitor
                     cadastrar_novo_eleitor()
                 #editar dados do eleitor
                 case 2:
