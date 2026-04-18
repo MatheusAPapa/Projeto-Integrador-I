@@ -51,8 +51,8 @@ while escolha != 3:
                     break
                 #listagem de todos os eleitores
                 case 3:
-                    print('listagem de todos os eleitores')
-                    break
+                    funcoesEleitor.listar_eleitores()
+                    input('Precione enter para voltar à tela inicial')
                 #fazer uma busca por eleitor
                 case 4:
                     print('fazer uma busca por um eleitor')

@@ -66,3 +66,8 @@ def cadastrar_novo_eleitor(nome, numero_titulo, cpf, mesario):
         if 'conn' in locals() and conexaobd.conexao.is_connected():
             conexaobd.cursor.close()
             conexaobd.conexao.close()
+
+def listar_eleitores():
+    conexaobd.cursor.execute('SELECT id, nome, mesario, status_de_voto FROM eleitores')
+    for (id, nome, mesario, status_de_voto) in conexaobd.cursor.fetchall():
+        print(f'ID: {id} - Nome: {nome} - Mesario: {mesario} - Status do voto: {'Pendente' if status_de_voto == 0 else 'Votou'}')
